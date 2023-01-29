@@ -2,10 +2,9 @@ package com.picturebook.searchlist.ui
 
 import android.annotation.SuppressLint
 import android.os.Bundle
-import android.util.TypedValue
 import android.view.*
-import android.view.inputmethod.EditorInfo
 import androidx.core.widget.NestedScrollView
+import androidx.core.widget.doAfterTextChanged
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.NavDirections
@@ -23,7 +22,6 @@ import com.picturebook.utils.extensions.hideKeyboard
 import com.picturebook.utils.extensions.showSnackBar
 import dagger.hilt.android.AndroidEntryPoint
 import org.apache.commons.lang3.StringUtils
-import java.util.*
 import kotlin.collections.ArrayList
 
 @AndroidEntryPoint
@@ -132,53 +130,20 @@ class SearchListFragment : Fragment() {
     }
 
     private fun setUpSearchBarActions() {
-        searchFragmentViewBinder.edtSearchPhotos.setOnEditorActionListener { _, actionId, _ ->
-            if (actionId == EditorInfo.IME_ACTION_SEARCH) {
+        searchFragmentViewBinder.edtSearchPhotos.apply {
+            doAfterTextChanged {
                 searchFragmentViewBinder.edtSearchPhotos.hideKeyboard()
-                val queryStr = searchFragmentViewBinder.edtSearchPhotos.text.toString()
                 adapter.clearProductItem()
                 searchFragmentViewBinder.txtViewPopulateTxt.text =
-                    "${getString(R.string.lbl_search_token)} ${queryStr.toUpperCase(Locale.ENGLISH)}"
-                viewModel.searchImagesFromServer(queryStr)
+                    "${getString(R.string.lbl_search_token)} ${text.toString()}"
+                viewModel.searchImagesFromServer(text.toString())
             }
-            false
         }
 
         searchFragmentViewBinder.inputTxtSearchBar.setEndIconOnClickListener {
             searchFragmentViewBinder.edtSearchPhotos.setText(StringUtils.EMPTY)
             adapter.clearProductItem()
             searchFragmentViewBinder.txtViewPopulateTxt.text = getString(R.string.lbl_search_latest)
-            viewModel.searchImagesFromServer("fruits")
         }
     }
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setHasOptionsMenu(false)
-    }
-
- /*   override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        inflater.inflate(R.menu.main_menu, menu)
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return when (item.itemId) {
-            R.id.search_menu -> {
-                // navigate to settings screen
-                true
-            }
-            R.id.night_menu -> {
-                // save profile changes
-                true
-            }
-            else -> super.onOptionsItemSelected(item)
-        }
-    }
-
-    override fun onPrepareOptionsMenu(menu: Menu) {
-        super.onPrepareOptionsMenu(menu)
-        val item = menu.findItem(R.id.search_menu)
-        item.isVisible = isEditing
-    }*/
-
 }

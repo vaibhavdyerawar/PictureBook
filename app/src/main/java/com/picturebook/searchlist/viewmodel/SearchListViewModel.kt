@@ -7,6 +7,7 @@ import com.picturebook.model.ResponseStatusCallbacks
 import com.picturebook.searchlist.usecases.SearchUseCase
 import dagger.assisted.Assisted
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import org.apache.commons.lang3.StringUtils
 import javax.inject.Inject

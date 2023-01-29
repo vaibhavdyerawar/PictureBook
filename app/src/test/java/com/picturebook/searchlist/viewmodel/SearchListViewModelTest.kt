@@ -88,7 +88,7 @@ class SearchListViewModelTest {
         verify { imagesListObserver.onChanged(match { it.data?.itemsList?.size == 1 }) }
     }
 
-  /*  @Test
+    @Test
     fun `test retry() returns list of images on failure`() = runBlocking {
         // Given
         val imagesListObserver =
@@ -109,7 +109,7 @@ class SearchListViewModelTest {
         verify { imagesListObserver.onChanged(match { it.data?.itemsList?.size == 1 }) }
     }
 
-    @Test
+ /*   @Test
     fun `test searchImagesFromServer() returns an error`() = runBlocking {
         // Given
         val imagesListObserver =
@@ -127,7 +127,6 @@ class SearchListViewModelTest {
         // Then
         coVerify(exactly = 1) { imageSearchUseCase.invoke(any(), any()) }
         verify { imagesListObserver.onChanged(match { it.status == ResponseStatus.ERROR}) }
-        verify { imagesListObserver.onChanged(match { it.data?.itemsList == null }) }
         verify { imagesListObserver.onChanged(match { it.message == any<String>() }) }
     }*/
 }

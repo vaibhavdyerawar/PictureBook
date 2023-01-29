@@ -7,19 +7,14 @@ import android.view.ViewGroup
 import androidx.databinding.library.baseAdapters.BR
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
-import com.picturebook.base.BaseFragment
 import com.picturebook.databinding.FragmentMoreDetailsBinding
 import com.picturebook.model.ItemData
 import com.picturebook.moredetails.viewmodel.MoreDetailsViewModel
-import com.picturebook.searchlist.viewmodel.SearchListViewModel
 import com.picturebook.utils.enums.ResponseStatus
-import com.picturebook.utils.extensions.obtainViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
-import javax.inject.Inject
 
 @AndroidEntryPoint
 class MoreDetailsFragment :  Fragment() {
@@ -38,7 +33,6 @@ class MoreDetailsFragment :  Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setHasOptionsMenu(false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
