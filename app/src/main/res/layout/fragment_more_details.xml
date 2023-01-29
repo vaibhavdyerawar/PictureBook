@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".moredetails.ui.MoreDetailsFragment">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="selectedImgItemData"
+            type="com.picturebook.moredetails.model.ImageDetails" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/bg_colour">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/productImg"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
+            android:adjustViewBounds="true"
+            android:padding="@dimen/_2sdp"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:loadLargeImage="@{selectedImgItemData.largeImageURL}"
+            tools:src="@drawable/loading_placeholder" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/txtViewUserName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/bg_tinted_40"
+            android:elevation="@dimen/_2sdp"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:textStyle="normal"
+            android:padding="@dimen/_5sdp"
+            app:drawableStartCompat="@drawable/ic_user"
+            app:layout_constraintBottom_toTopOf="@id/txtViewTags"
+            app:layout_constraintStart_toStartOf="parent"
+            app:loadShortString="@{selectedImgItemData.user}"
+            tools:ignore="HardcodedText"
+            tools:text="User" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/txtViewTags"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@color/bg_tinted_40"
+            android:elevation="@dimen/_2sdp"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:textStyle="normal"
+            android:padding="@dimen/_5sdp"
+            app:drawableStartCompat="@drawable/ic_tags"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/txtViewLikes"
+            app:loadShortString="@{selectedImgItemData.tags}"
+            tools:ignore="HardcodedText"
+            tools:text="Tags" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/txtViewLikes"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@color/bg_tinted_40"
+            android:elevation="@dimen/_2sdp"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:textStyle="normal"
+            android:padding="@dimen/_5sdp"
+            app:drawableStartCompat="@drawable/ic_likes"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/txtViewDownloads"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintHorizontal_chainStyle="spread"
+            app:loadIntAsString="@{selectedImgItemData.likes}"
+            tools:ignore="HardcodedText"
+            tools:text="Likes" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/txtViewDownloads"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@color/bg_tinted_40"
+            android:elevation="@dimen/_2sdp"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:textStyle="normal"
+            android:padding="@dimen/_5sdp"
+            app:drawableStartCompat="@drawable/ic_download"
+            app:layout_constraintStart_toEndOf="@id/txtViewLikes"
+            app:layout_constraintEnd_toStartOf="@id/txtViewComments"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_weight="1"
+            app:loadIntAsString="@{selectedImgItemData.downloads}"
+            tools:ignore="HardcodedText"
+            tools:text="Downloads" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/txtViewComments"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@color/bg_tinted_40"
+            android:elevation="@dimen/_2sdp"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:textStyle="normal"
+            android:padding="@dimen/_5sdp"
+            app:drawableStartCompat="@drawable/ic_comments"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_weight="1"
+            app:loadIntAsString="@{selectedImgItemData.comments}"
+            tools:ignore="HardcodedText"
+            tools:text="Comments" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

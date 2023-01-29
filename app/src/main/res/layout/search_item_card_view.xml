@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="lstItem"
+            type="com.picturebook.model.ItemData" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/lstItemParentLayout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_160sdp"
+        android:layout_marginStart="@dimen/_3sdp"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:layout_marginEnd="@dimen/_3sdp"
+        android:elevation="@dimen/_1sdp"
+        app:cardCornerRadius="@dimen/_5sdp"
+        app:cardElevation="@dimen/_1sdp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/containerIdCard"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/imgViewThumbnail"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_vertical"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:loadPreviewImage="@{lstItem.previewURL}"
+                tools:src="@mipmap/ic_launcher" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/txtViewUserName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@color/bg_tinted_40"
+                android:elevation="@dimen/_2sdp"
+                android:padding="@dimen/_5sdp"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:textStyle="normal"
+                app:drawableStartCompat="@drawable/ic_user"
+                app:layout_constraintBottom_toTopOf="@id/txtViewTags"
+                app:layout_constraintStart_toStartOf="parent"
+                app:loadShortString="@{lstItem.user}"
+                tools:ignore="HardcodedText"
+                tools:text="User" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/txtViewTags"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/bg_tinted_40"
+                android:elevation="@dimen/_2sdp"
+                android:padding="@dimen/_5sdp"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:textStyle="normal"
+                app:drawableStartCompat="@drawable/ic_tags"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/imgViewThumbnail"
+                app:layout_constraintStart_toStartOf="parent"
+                app:loadShortString="@{lstItem.tags}"
+                tools:ignore="HardcodedText"
+                tools:text="Tags" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+</layout>

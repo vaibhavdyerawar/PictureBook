@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">PictureBook</string>
+    <string name="lbl_search_photos">Search Photos</string>
+    <string name="lbl_search_latest">Search: Latest</string>
+    <string name="lbl_search">Search</string>
+    <string name="lbl_search_token">Search:</string>
+    <string name="lbl_photo_details">Photo Details</string>
+    <string name="lbl_OK">OK</string>
+    <string name="lbl_Cancel">Cancel</string>
+    <string name="lbl_title_see_more_details">See More Details</string>
+    <string name="lbl_msg_see_more_details">Do you want to see more details?</string>
+    <string name="title_activity_splash">SplashActivity</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+
+    <!--Search Fragment -->
+    <string name="msg_no_internet_connection">"Oops!! No Internet."</string>
+    <string name="lbl_retry">"Retry"</string>
+    <string name="msg_loading_more_imgs">"Please wait. Loading more images…"</string>
+
+</resources>
