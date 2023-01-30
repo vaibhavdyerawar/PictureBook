@@ -57,8 +57,10 @@ class MoreDetailsFragment :  Fragment() {
                     }
                 }
                 ResponseStatus.ERROR -> {
+                    //Nothing to do.
                 }
                 ResponseStatus.LOADING -> {
+                    //Nothing to do.
                 }
             }
 

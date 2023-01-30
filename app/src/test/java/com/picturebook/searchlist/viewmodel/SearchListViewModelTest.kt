@@ -5,11 +5,8 @@ import androidx.lifecycle.Observer
 import com.picturebook.MainCoroutinesRule
 import com.picturebook.mock.MockDataProvider
 import com.picturebook.model.FetchImageData
-import com.picturebook.model.ItemData
 import com.picturebook.model.ResponseStatusCallbacks
-import com.picturebook.model.SearchItemsData
 import com.picturebook.searchlist.usecases.SearchUseCase
-import com.picturebook.utils.enums.ResponseStatus
 import io.mockk.*
 import io.mockk.impl.annotations.MockK
 import kotlinx.coroutines.ExperimentalCoroutinesApi
@@ -108,25 +105,4 @@ class SearchListViewModelTest {
         verify { imagesListObserver.onChanged(match { it.data != null }) }
         verify { imagesListObserver.onChanged(match { it.data?.itemsList?.size == 1 }) }
     }
-
- /*   @Test
-    fun `test searchImagesFromServer() returns an error`() = runBlocking {
-        // Given
-        val imagesListObserver =
-            mockk<Observer<ResponseStatusCallbacks<FetchImageData>>>(relaxed = true)
-
-        // When
-        coEvery { imageSearchUseCase.invoke(any(), any()) }
-            .returns(flowOf(SearchItemsData(0, 0, emptyList())))
-
-        // Invoke
-        viewModel = SearchListViewModel(imageSearchUseCase)
-        viewModel.searchImagesFromServer("yellow flowers")
-        viewModel.searchResponse.observeForever(imagesListObserver)
-
-        // Then
-        coVerify(exactly = 1) { imageSearchUseCase.invoke(any(), any()) }
-        verify { imagesListObserver.onChanged(match { it.status == ResponseStatus.ERROR}) }
-        verify { imagesListObserver.onChanged(match { it.message == any<String>() }) }
-    }*/
 }

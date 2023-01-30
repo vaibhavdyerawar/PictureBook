@@ -9,9 +9,10 @@
     <string name="lbl_Cancel">Cancel</string>
     <string name="lbl_title_see_more_details">See More Details</string>
     <string name="lbl_msg_see_more_details">Do you want to see more details?</string>
+    <string name="lbl_msg_no_img_available">Sorry, no more images available.</string>
+    <string name="lbl_msg_no_data_found">Sorry, no relevant data found.</string>
     <string name="title_activity_splash">SplashActivity</string>
-    <string name="dummy_button">Dummy Button</string>
-    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="default_search_txt">fruits</string>
 
     <!--Search Fragment -->
     <string name="msg_no_internet_connection">"Oops!! No Internet."</string>

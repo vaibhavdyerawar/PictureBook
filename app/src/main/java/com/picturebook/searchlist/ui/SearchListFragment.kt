@@ -145,5 +145,7 @@ class SearchListFragment : Fragment() {
             adapter.clearProductItem()
             searchFragmentViewBinder.txtViewPopulateTxt.text = getString(R.string.lbl_search_latest)
         }
+
+        searchFragmentViewBinder.edtSearchPhotos.setText(R.string.default_search_txt)
     }
 }
