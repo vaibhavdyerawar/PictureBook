@@ -24,7 +24,7 @@ object BindingAdapter : BaseObservable() {
             .diskCacheStrategy(DiskCacheStrategy.DATA)
             .load(imgURL)
             .placeholder(circleProgress)
-            .error(R.drawable.ic_failed)
+            .error(R.drawable.ic_failed_small)
             .into(imageView)
 
     }
@@ -42,7 +42,7 @@ object BindingAdapter : BaseObservable() {
             .diskCacheStrategy(DiskCacheStrategy.DATA)
             .load(imgURL)
             .placeholder(circleProgress)
-            .error(R.drawable.ic_failed)
+            .error(R.drawable.error_bg_placeholder)
             .into(imageView)
     }
 
