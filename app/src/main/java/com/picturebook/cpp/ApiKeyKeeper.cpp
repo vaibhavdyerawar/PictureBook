@@ -2,7 +2,7 @@
 #include<string>
 #include<iostream>
 
-extern "C" JNIEXPORT jstring JNICALL
-Java_com_pixaland_app_service_ApiKeyProvider_getAPIKey(JNIEnv *env, jobject this){
-        return env->NewStringUTF("33000158-a26e47bb8e28fff274d0e1ab3");
+extern "C" JNIEXPORT JNICALL jstring
+Java_com_picturebook_service_ApiKeyProvider_getAPIKey(JNIEnv *env, jobject jObj) {
+    return env->NewStringUTF("33181627-dfe938147d37944eaf644206e");
 }

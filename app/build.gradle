@@ -25,10 +25,9 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-
         externalNativeBuild {
             cmake {
-                cppFlags ""
+                cppFlags ''
             }
         }
     }
@@ -40,19 +39,18 @@ android {
         }
     }
 
-    /*externalNativeBuild {
-        cmake {
-            path "src/main/java/com/picturebook/cpp/CMakeLists.txt"
-            version "3.10.2"
-        }
-    }*/
-
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
     kotlinOptions {
         jvmTarget = '1.8'
+    }
+    externalNativeBuild {
+        cmake {
+            path file('src/main/java/com/picturebook/cpp/CMakeLists.txt')
+            version '3.18.1'
+        }
     }
 }
 

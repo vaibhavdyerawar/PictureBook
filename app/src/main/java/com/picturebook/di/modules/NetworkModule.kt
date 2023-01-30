@@ -1,14 +1,11 @@
 package com.picturebook.di.modules
 
 import android.content.Context
-import android.view.View
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
-import com.picturebook.MainActivity
 import com.picturebook.service.Api
-import com.picturebook.service.ResponseInterceptorOnline
-import com.picturebook.service.LocalCacheInterceptor
+import com.picturebook.repo.remote.ResponseInterceptorOnline
+import com.picturebook.repo.local.LocalCacheInterceptor
 import com.picturebook.utils.CONSTANTS.BASE_URL
-import com.picturebook.utils.extensions.isInternetAvailable
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

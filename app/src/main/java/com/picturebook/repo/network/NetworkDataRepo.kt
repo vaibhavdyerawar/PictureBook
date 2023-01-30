@@ -14,7 +14,7 @@ class NetworkDataRepo @Inject constructor(private val apiService: Api) : AppData
         return flow {
             emit(
                 apiService.getSearchResultData(
-                    key = "33181627-dfe938147d37944eaf644206e", //ApiKeyProvider.getAPIKey(),
+                    key = ApiKeyProvider.getAPIKey(),
                     page = page,
                     search = search
                 )

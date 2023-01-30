@@ -1,4 +1,4 @@
-package com.picturebook.service
+package com.picturebook.repo.remote
 
 import okhttp3.Interceptor
 import okhttp3.Response
