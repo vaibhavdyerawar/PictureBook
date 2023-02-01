@@ -5,13 +5,13 @@ import android.os.Bundle
 import android.view.*
 import androidx.core.widget.NestedScrollView
 import androidx.core.widget.doAfterTextChanged
-import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.NavDirections
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.kennyc.view.MultiStateView
 import com.picturebook.R
+import com.picturebook.base.BaseFragment
 import com.picturebook.databinding.FragmentSearchListBinding
 import com.picturebook.model.ItemData
 import com.picturebook.searchlist.ui.adapters.GenericListAdapter
@@ -25,7 +25,7 @@ import org.apache.commons.lang3.StringUtils
 import kotlin.collections.ArrayList
 
 @AndroidEntryPoint
-class SearchListFragment : Fragment() {
+class SearchListFragment : BaseFragment() {
 
     private val viewModel by viewModels<SearchListViewModel>()
     private lateinit var adapter: GenericListAdapter<ItemData>

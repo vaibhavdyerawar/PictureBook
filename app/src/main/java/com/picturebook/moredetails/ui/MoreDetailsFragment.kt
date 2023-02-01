@@ -5,9 +5,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.library.baseAdapters.BR
-import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import com.picturebook.base.BaseFragment
 import com.picturebook.databinding.FragmentMoreDetailsBinding
 import com.picturebook.model.ItemData
 import com.picturebook.moredetails.viewmodel.MoreDetailsViewModel
@@ -17,7 +17,7 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
-class MoreDetailsFragment :  Fragment() {
+class MoreDetailsFragment :  BaseFragment() {
 
     private val viewModel by  viewModels<MoreDetailsViewModel>()
     private lateinit var moreDetailsFragmentViewBinder: FragmentMoreDetailsBinding
