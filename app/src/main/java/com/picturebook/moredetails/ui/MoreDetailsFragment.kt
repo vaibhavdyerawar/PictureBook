@@ -7,19 +7,21 @@ import android.view.ViewGroup
 import androidx.databinding.library.baseAdapters.BR
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import com.picturebook.R
 import com.picturebook.base.BaseFragment
 import com.picturebook.databinding.FragmentMoreDetailsBinding
 import com.picturebook.model.ItemData
 import com.picturebook.moredetails.viewmodel.MoreDetailsViewModel
 import com.picturebook.utils.enums.ResponseStatus
+import com.picturebook.utils.extensions.showSnackBar
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
-class MoreDetailsFragment :  BaseFragment() {
+class MoreDetailsFragment : BaseFragment() {
 
-    private val viewModel by  viewModels<MoreDetailsViewModel>()
+    private val viewModel by viewModels<MoreDetailsViewModel>()
     private lateinit var moreDetailsFragmentViewBinder: FragmentMoreDetailsBinding
 
     override fun onCreateView(
@@ -29,10 +31,6 @@ class MoreDetailsFragment :  BaseFragment() {
         return FragmentMoreDetailsBinding.inflate(inflater, container, false).apply {
             moreDetailsFragmentViewBinder = this
         }.root
-    }
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -56,14 +54,12 @@ class MoreDetailsFragment :  BaseFragment() {
                         }
                     }
                 }
-                ResponseStatus.ERROR -> {
-                    //Nothing to do.
-                }
-                ResponseStatus.LOADING -> {
-                    //Nothing to do.
+                else -> {
+                    moreDetailsFragmentViewBinder.parentLayout.showSnackBar(
+                        message = getString(R.string.lbl_msg_no_data_found)
+                    )
                 }
             }
-
         }
     }
 }
